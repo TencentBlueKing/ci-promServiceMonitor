@@ -1,0 +1,147 @@
+{
+    "atomCode": "promServiceMonitor",
+    "execution": {
+        "language": "python",
+        "demands": [],
+        "target": "servicemonitor"
+    },
+    "input": {
+        "name": {
+            "label": "名称",
+            "type": "vuex-input",
+            "groupName": "",
+            "required": true,
+            "placeholder": "请填写名称，需要集群内唯一"
+        },
+        "cluster_id": {
+            "label": "集群ID",
+            "type": "vuex-input",
+            "groupName": "",
+            "required": true,
+            "placeholder": "请填写集群ID，如BCS-K8S-40000"
+        },
+        "namespace": {
+            "label": "Namespace",
+            "type": "vuex-input",
+            "groupName": "",
+            "required": true,
+            "placeholder": "请填写k8s/mesos的namespace, 本配置将下发到该namespace下"
+        },
+        "service_name": {
+            "label": "Service",
+            "type": "vuex-input",
+            "groupName": "",
+            "required": true,
+            "placeholder": "请填写k8s/mesos的service"
+        },
+        "selector": {
+            "label": "关联的Labels",
+            "type": "dynamic-parameter",
+            "required": true,
+            "desc": "关联Service的labels",
+            "param": {
+                "paramType": "list",
+                "parameters": [
+                    {
+                        "id": "labels",
+                        "paramModels": [
+                            {
+                                "id": "label_name",
+                                "label": "Label Name",
+                                "type": "input",
+                                "disabled": false
+                            },
+                            {
+                                "id": "label_value",
+                                "label": "Label Value",
+                                "type": "input",
+                                "disabled": false
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "port": {
+            "label": "Port或者Portname",
+            "type": "vuex-input",
+            "required": true,
+            "placeholder": "请填写metrics接口对应的Port或者Portname，如80或者http"
+        },
+        "path": {
+            "label": "Metrics路径",
+            "type": "vuex-input",
+            "required": false,
+            "placeholder": "请输入metrics接口路径，如/metrics",
+            "default": "/metrics"
+        },
+        "params": {
+            "label": "Metrics 请求参数",
+            "type": "dynamic-parameter",
+            "required": false,
+            "desc": "metrics接口GET请求参数",
+            "param": {
+                "paramType": "list",
+                "parameters": [
+                    {
+                        "id": "params",
+                        "paramModels": [
+                            {
+                                "id": "key",
+                                "label": "键",
+                                "type": "input",
+                                "disabled": false
+                            },
+                            {
+                                "id": "value",
+                                "label": "值",
+                                "type": "input",
+                                "disabled": false
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "interval": {
+            "label": "查询周期",
+            "type": "enum-input",
+            "groupName": "",
+            "default": "30",
+            "list": [
+                {
+                    "value": "15",
+                    "label": "15秒"
+                },
+                {
+                    "value": "30",
+                    "label": "30秒"
+                },
+                {
+                    "value": "60",
+                    "label": "1分钟"
+                }
+            ]
+        },
+        "sampleLimit": {
+            "label": "最大Sample数量",
+            "type": "enum-input",
+            "groupName": "",
+            "default": "50000",
+            "list": [
+                {
+                    "value": "10000",
+                    "label": "10K"
+                },
+                {
+                    "value": "50000",
+                    "label": "50K"
+                },
+                {
+                    "value": "100000",
+                    "label": "100K"
+                }
+            ]
+        }
+    }
+}
