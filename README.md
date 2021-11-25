@@ -1,9 +1,16 @@
-# 说明
+# 蓝盾容器监控(ServiceMonitor)插件
 
-- [插件开发快速入门](http://iwiki.oa.com/pages/viewpage.action?pageId=15008942)
+下发 prometheus servicemonitor 到指定 BCS 集群中
 
-- [插件开发指引（Python版）](http://iwiki.oa.com/pages/viewpage.action?pageId=15009033)
+## 依赖项
+- bk-bcs-saas 包
+- bk-bcs 包
 
-- [插件开发SDK（Python版）](http://iwiki.oa.com/pages/viewpage.action?pageId=15009427)
+## 配置变量
 
-- [Python插件执行环境](http://iwiki.oa.com/pages/viewpage.action?pageId=15009234)
+- app_code: 蓝鲸App的app_code
+- app_secret: 蓝鲸App的secret
+- BK_PAAS_INNER_HOST: 蓝鲸内部域名地址
+
+
+![image](./docs/_images/private_vars.png)
